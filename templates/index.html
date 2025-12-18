@@ -1,53 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
-    <script src="{{ url_for('static', filename='bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js') }}"></script>
-
-    <title>{% block title %}Document{% endblock %}</title>
-</head>
-
-<body class="bg-dark text-light">
+{% block title %}Home | Notionary.AI{% endblock %}
 
 {% block navbar %}
-<div class="col-12">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand d-flex align-items-center fs-1" href="#">
-                <img src="{{ url_for('static', filename='images/notes3.png') }}"
-                    class="rounded me-2"
-                    alt="Profile"
-                    style="height: 89px;">
-                Notionary.AI
-            </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand d-flex align-items-center fs-1" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='images/notes2.jpg') }}"
+             class="rounded me-2"
+             alt="Logo"
+             style="height: 70px;">
+        Notionary.AI
+    </a>
 
-                <ul class="navbar-nav ms-auto fs-3 flex-row">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Sign Up</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
-
+    <ul class="navbar-nav ms-auto fs-4">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about_me') }}">About Me</a></li>
+        <li class="nav-item">
+            <a class="nav-link btn btn-outline-light px-3 ms-3" href="#">Sign Up</a>
+        </li>
+    </ul>
+</nav>
 {% endblock %}
 
 {% block content %}
 
+<!-- ================= HERO ================= -->
+<section class="hero text-center text-light">
+    <div class="container">
+        <h1 class="hero-title">
+            Smarter Notes.<br>
+            Powered by <span>AI</span>.
+        </h1>
+        <p class="hero-subtitle">
+            Notionary.AI helps you turn ideas, lectures, and thoughts into clean,
+            organized notes instantly.
+        </p>
 
-<h1>Welcome {{ name }} to Notionary.AI</h1>
-<p>Helping One word at a time</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary btn-lg me-3">Get Started</a>
+            <a href="#features" class="btn btn-outline-light btn-lg">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section id="features" class="features-section">
+    <div class="container">
+        <h2 class="section-title text-center">Why Notionary.AI?</h2>
+
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h4>🧠 AI-Powered Notes</h4>
+                    <p>Automatically structure and summarize your ideas.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h4>⚡ Fast & Simple</h4>
+                    <p>Paste text and get clean notes in seconds.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h4>📚 Organized Learning</h4>
+                    <p>Perfect for students, creators, and developers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="steps-section text-center">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h3>1</h3>
+                    <p>Enter your notes or ideas</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h3>2</h3>
+                    <p>AI processes & organizes</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="step-card">
+                    <h3>3</h3>
+                    <p>Get clean, usable notes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CHATBOT ================= -->
+<section class="chatbot-section text-center">
+    <div class="container">
+        <h2 class="section-title">Try the AI</h2>
+        <p class="text-muted mb-4">
+            Ask questions or generate notes instantly.
+        </p>
+
+        <div class="elfsight-app-754b5901-d462-438f-b412-5e7d64795125"
+             data-elfsight-app-lazy></div>
+    </div>
+</section>
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
+
 {% endblock %}
 
 {% block footer %}
-
-
-
+<footer class="footer text-center">
+    <p>&copy; 2024 Notionary.AI</p>
+</footer>
 {% endblock %}
-
-</body>
-</html>
